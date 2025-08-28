@@ -24,6 +24,4 @@ for (let i = 0; i < vetorNumeros.length - 1; i++) {
 // Exibindo o vetor ordenado
 console.log("Vetor Ordenado:", vetorNumeros)
 
-//*************************************************************************************************
-
 
