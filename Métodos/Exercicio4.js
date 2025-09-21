@@ -1,9 +1,9 @@
 // Bubble Sort
 function bubblesort(vetor) {
-    for (let i = 0; i < vetor.length - 1; i++) {
-        for (let j = 0; j < vetor.length - 1 - i; j++) {
+    for (i = 0; i < vetor.length - 1; i++) {
+        for (j = 0; j < vetor.length - 1 - i; j++) {
             if (vetor[j] > vetor[j + 1]) {
-                let temporario = vetor[j]
+                temporario = vetor[j]
                 vetor[j] = vetor[j + 1]
                 vetor[j + 1] = temporario
             }
@@ -14,15 +14,15 @@ function bubblesort(vetor) {
 
 // Selection Sort
 function selectionSort(vetor) {
-    for (let i = 0; i < vetor.length - 1; i++) {
-        let menor = i
-        for (let j = i + 1; j < vetor.length; j++) {
+    for (i = 0; i < vetor.length - 1; i++) {
+        menor = i
+        for (j = i + 1; j < vetor.length; j++) {
             if (vetor[j] < vetor[menor]) {
                 menor = j
             }
         }
         if (menor !== i) {
-            let temporario = vetor[i]
+            temporario = vetor[i]
             vetor[i] = vetor[menor]
             vetor[menor] = temporario
         }
@@ -32,10 +32,10 @@ function selectionSort(vetor) {
 
 // Insertion Sort
 function insertionSort(vetor) {
-    for (let i = 1; i < vetor.length; i++) {
-        let chave = vetor[i]
-        let j = i - 1
-        while (j >= 0 && vetor[j] > chave) {
+    for (i = 1; i < vetor.length; i++) {
+        chave = vetor[i]
+        j = i - 1
+        while (j >= 0 || vetor[j] > chave) {
             vetor[j + 1] = vetor[j]
             j--
         }
@@ -46,42 +46,42 @@ function insertionSort(vetor) {
 
 // Medir tempo de execução de uma função de ordenação
 function medirTempo(funcao, vetor) {
-    const copia = [...vetor] // Clona o vetor para não alterar o original
-    const inicio = performance.now()
+    copia = [... vetor] // Clona o vetor para não alterar o original
+    inicio = performance.now()
     funcao(copia)
-    const fim = performance.now()
+    fim = performance.now()
     return Math.round(fim - inicio) // Retorna o tempo em milissegundos
 }
 
 // Geração de vetores
 function gerarAleatorio(tamanho = 1000) {
-    let vetor = []
-    for (let i = 0; i < tamanho; i++) {
+    vetor = []
+    for (i = 0; i < tamanho; i++) {
         vetor.push(Math.floor(Math.random() * 1000)) // Valores de 0 a 999
     }
     return vetor
 }
 
 function gerarOrdenado(tamanho = 1000) {
-    let vetor = []
-    for (let i = 0; i < tamanho; i++) {
+    vetor = []
+    for (i = 0; i < tamanho; i++) {
         vetor.push(i)
     }
     return vetor
 }
 
 function gerarInvertido(tamanho = 1000) {
-    let vetor = []
-    for (let i = tamanho; i > 0; i--) {
+    vetor = []
+    for (i = tamanho; i > 0; i--) {
         vetor.push(i)
     }
     return vetor
 }
 
 // Gera vetores de teste
-let aleatorio = gerarAleatorio()
-let ordenado = gerarOrdenado()
-let invertido = gerarInvertido()
+aleatorio = gerarAleatorio()
+ordenado = gerarOrdenado()
+invertido = gerarInvertido()
 
 // Testes de desempenho
 console.log("Tempo de execução (em milissegundos):\n")
@@ -100,4 +100,8 @@ console.log("\n Insertion Sort:")
 console.log("Aleatório:", medirTempo(insertionSort, aleatorio), "ms")
 console.log("Ordenado:", medirTempo(insertionSort, ordenado), "ms")
 console.log("Invertido:", medirTempo(insertionSort, invertido), "ms")
+
+
+
+
 

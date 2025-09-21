@@ -1,10 +1,9 @@
 //2° Método Bubblesort
-//Vetor com os números que queremos ordenar
 let vetorNumeros = [25, 57, 48, 37, 12, 92, 86, 33]
 
 //Algoritmo Bubblesort aplicado direto no vetor
-for (let i = 0; i < vetorNumeros.length -1; i++) {
-    for (let j = 0; j < vetorNumeros.length -1 -i; j++) {
+for (i = 0; i < vetorNumeros.length -1; i++) {
+    for (j = 0; j < vetorNumeros.length -1 -i; j++) {
         if (vetorNumeros [j] > vetorNumeros [j+1]) {
             //Troca de posição entre os dois elementos
             temporario = vetorNumeros [j]
