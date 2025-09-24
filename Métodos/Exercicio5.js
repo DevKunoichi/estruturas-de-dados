@@ -9,7 +9,6 @@ function fatorial (numero) {
 result = fatorial (8)
 console.log (result)
 
-//******************************************************
 //Fibonacci
 function fibonacci (numero) {
     if (numero == 1 || numero == 2) {
@@ -21,7 +20,6 @@ function fibonacci (numero) {
 result = fibonacci (8)
 console.log (result)
 
-//***************************************************** 
 //Potência
 function potencia (base, expoente) {
     if (expoente == 0) {
@@ -33,7 +31,6 @@ function potencia (base, expoente) {
 result = potencia (5, 2)
 console.log (result)
 
-//***************************************************** 
 //Recursão por Busca Binária
 function busca (A, inicio, final, x) {
     if (inicio > final) {
@@ -50,14 +47,12 @@ function busca (A, inicio, final, x) {
         }
     }
 }
-//Programa Principal
 numeros = [0, 11, 22, 33, 44, 55, 66, 77, 88, 99]
 result = busca (numeros, 0, numeros. length - 1, 44)
 console.log ("numeros = ", numeros)
 console.log (result)
 
-//*******************************************************
-
+//Torre de Hanoi
 function hanoi (numero, origem, destino, auxiliar) {
     if (numero == 1) {
         console.log (`Mova o disco 1 de ${origem} para ${destino}`)
@@ -70,7 +65,7 @@ function hanoi (numero, origem, destino, auxiliar) {
 //3 discos
 hanoi (3, 'A', 'C', 'B')
 
-//******************************************************************** 
+
 //Quick Sort
 function quicksort(array, left, right) {
   let i = left

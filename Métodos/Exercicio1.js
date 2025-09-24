@@ -1,12 +1,13 @@
 //1° Método de Seleção Direta
 let vetorNumeros = [25, 57, 48, 37, 12, 92, 86, 33]
+let vetorOriginal = [...vetorNumeros]
 
 // Método de Seleção Direta aplicado direto no vetor
-for (i = 0; i < vetorNumeros.length - 1; i++) {
-    indiceMenor = i
+for (let i = 0; i < vetorNumeros.length - 1; i++) {
+    let indiceMenor = i
 
     // Encontra o menor elemento do restante do vetor
-    for (j = i + 1; j < vetorNumeros.length; j++) {
+    for (let j = i + 1; j < vetorNumeros.length; j++) {
         if (vetorNumeros[j] < vetorNumeros[indiceMenor]) {
             indiceMenor = j
         }
@@ -14,13 +15,14 @@ for (i = 0; i < vetorNumeros.length - 1; i++) {
 
     // Troca o menor elemento encontrado com o elemento da posição atual
     if (indiceMenor !== i) {
-        auxiliar = vetorNumeros[i]
+        let auxiliar = vetorNumeros[i]
         vetorNumeros[i] = vetorNumeros[indiceMenor]
         vetorNumeros[indiceMenor] = auxiliar
     }
 }
 
-// Exibindo o vetor ordenado
+// Exibindo o vetor original e o ordenado
+console.log("Vetor Original:", vetorOriginal)
 console.log("Vetor Ordenado:", vetorNumeros)
 
 
