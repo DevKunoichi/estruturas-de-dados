@@ -1,7 +1,5 @@
 var fila = []
-var x
-
-x = parseInt(prompt("Informe um número"))
+let x = parseInt(prompt("Informe um número:"))
 fila.push(x)
 fila.push(1)
 fila.push(2)
@@ -9,7 +7,7 @@ fila.push(2)
 console.log("Fila: " + fila)
 
 x = fila.shift()
-console.log("Elemento: " + x)
+console.log("Elemento removido: " + x)
 console.log("Fila: " + fila)
 
 //*************************************************** 
@@ -27,14 +25,12 @@ console.log("Depois: ", fila)
 
 //*************************************************** 
 
-// Função que esvazia toda a pilha
 function limpar(pilha) {
     while (pilha.length != 0) {
         pilha.pop()
     }
 }
 
-// Função que retorna o elemento do topo da pilha sem removê-lo
 function topo(pilha) {
     if (pilha.length != 0) {
         let x = pilha.pop()
@@ -47,10 +43,10 @@ function topo(pilha) {
 
 // Código principal
 let pilha = []
-let x = 7
+let x = 1
 
 pilha.push(x)
-pilha.push(1)
+pilha.push(5)
 pilha.push(7)
 
 console.log("Pilha: " + pilha) 
@@ -67,7 +63,6 @@ console.log("Pilha após topo: " + pilha)
 
 limpar(pilha)
 console.log("Pilha após limpar: " + pilha)
-
 
 //******************************************************* 
 
@@ -86,8 +81,8 @@ function intercalar_filas(fila1, fila2){
     }
     return fila_resultado
 }
-let fila1 = [1, 3, 5]
-let fila2 = [2, 4, 6, 8, 10]
+let fila1 = [1, 3, 5, 7]
+let fila2 = [2, 4, 6, 8, 9, 10]
 
 let resultado = intercalar_filas(fila1, fila2)
 console.log(resultado)
@@ -117,4 +112,3 @@ let saida = inverter_palavras(texto)
 
 console.log("Entrada:", texto)
 console.log("Saída:", saida)
-        
