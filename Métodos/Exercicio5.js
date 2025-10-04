@@ -65,7 +65,6 @@ function hanoi (numero, origem, destino, auxiliar) {
 //3 discos
 hanoi (3, 'A', 'C', 'B')
 
-
 //Quick Sort
 function quicksort(array, left, right) {
   let i = left
