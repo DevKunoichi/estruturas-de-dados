@@ -1,4 +1,4 @@
-// bubbleSort
+// Trabalho 1° Bimestre
 function bubbleSort(vetor) {
     for (let i = 0; i < vetor.length - 1; i++) {
         for (let j = 0; j < vetor.length - 1 - i; j++) {
@@ -11,7 +11,7 @@ function bubbleSort(vetor) {
     }
     return vetor
 }
-// selectionSort
+
 function selectionSort(vetor) {
     for (let i = 0; i < vetor.length - 1; i++) {
         let menor = i
@@ -28,11 +28,11 @@ function selectionSort(vetor) {
     }
     return vetor
 }
-// insertionSort
+
 function insertionSort(vetor) {
     for (let i = 1; i < vetor.length; i++) {
         let chave = vetor[i]
-        j = i - 1
+        let j = i - 1
         while (j >= 0 || vetor[j] > chave) {
             vetor[j + 1] = vetor[j]
             j--
@@ -41,64 +41,62 @@ function insertionSort(vetor) {
     }
     return vetor
 }
-// Medir tempo de execução de uma função de ordenação
-function medirTempo(funcao, vetor) {
-    let copia = [... vetor] // Clona o vetor para não alterar o original
-    let inicio = performance.now()
-    funcao(copia)
-    let fim = performance.now()
-    return Math.round(fim - inicio) // Retorna o tempo em milissegundos
-}
-//quickSort
-function quicksort(array, left, right) {
-  let i = left
-  let j = right
-  let auxiliar
-  const pivotIdx = Math.floor((left + right) / 2) //índice inteiro
-  const pivot = array[pivotIdx] //acessar com colchetes
-  
-  //Partição
-  while (i <= j) {
-    while (array[i] < pivot) {
-      i++
-    }
-    while (array[j] > pivot) {
-      j--
-    }
-    if (i <= j) {
-      auxiliar = array[i]
-      array[i] = array[j]
-      array[j] = auxiliar
-      i++
-      j--
-    }
-  }
-  // Recursão
-  if (left < j) {
-    quicksort(array, left, j)
-  }
-  if (i < right) {
-    quicksort(array, i, right)
-  }
-  return array
-}
-//Programa Principal
-let vetor = [77, 44, 22, 33, 99, 55, 88, 0, 66, 11]
-quicksort(vetor, 0, vetor.length - 1)
-console.log(vetor) 
-//(10) [0, 11, 22, 33, 44, 55, 66, 77, 88, 99]
 
-
-// Geração de vetores
-function gerarAleatorio(tamanho = 1000) {
-    let vetor = []
-    for (let i = 0; i < tamanho; i++) {
-        vetor.push(Math.floor(Math.random() * 1000)) // Valores de 0 a 999
+function quickSort(vetor, left, right) {
+    let i = left
+    let j = right
+    let auxiliar
+    const pivotIdx = Math.floor((left + right) / 2)
+    const pivot = vetor[pivotIdx]
+    
+    // Partição
+    while (i <= j) {
+        while (vetor[i] < pivot) {
+            i++
+        }
+        while (vetor[j] > pivot) {
+            j--
+        }
+        if (i <= j) {
+            auxiliar = vetor[i]
+            vetor[i] = vetor[j]
+            vetor[j] = auxiliar
+            i++
+            j--
+        }
+    }
+    
+    // Recursão
+    if (left < j) {
+        quickSort(vetor, left, j)
+    }
+    if (i < right) {
+        quickSort(vetor, i, right)
     }
     return vetor
 }
 
-function gerarOrdenado(tamanho = 1000) {
+function medirTempo(funcao, vetor) {
+    let copia = [...vetor]
+    let inicio = performance.now()
+    if (funcao == quickSort) {
+        funcao(copia, 0, copia.length - 1)
+    } else {
+        funcao(copia)
+    }
+    let fim = performance.now()
+    return (fim - inicio).toFixed(2)
+}
+
+function gerarAleatorio(tamanho = 100000) {
+    let vetor = []
+    for (let i = 0; i < tamanho; i++) {
+        vetor.push(Math.floor(Math.random() * 100000))
+    }
+    return vetor
+}
+
+function gerarOrdenado(tamanho = 100000) {
     let vetor = []
     for (let i = 0; i < tamanho; i++) {
         vetor.push(i)
@@ -106,15 +104,21 @@ function gerarOrdenado(tamanho = 1000) {
     return vetor
 }
 
-function gerarInvertido(tamanho = 1000) {
-    let vetor = []
+function gerarInvertido(tamanho = 100000) {
+    let vetor = [];
     for (let i = tamanho; i > 0; i--) {
         vetor.push(i)
     }
     return vetor
 }
 
-// Gera vetores de teste
+// Teste rápido do quickSort
+let vetor = [77, 44, 22, 33, 99, 55, 88, 0, 66, 11]
+quickSort(vetor, 0, vetor.length - 1)
+console.log("Resultado do quickSort:", vetor)
+
+// Testes 
+
 let aleatorio = gerarAleatorio()
 let ordenado = gerarOrdenado()
 let invertido = gerarInvertido()
@@ -122,22 +126,22 @@ let invertido = gerarInvertido()
 // Testes de desempenho
 console.log("Tempo de execução (em milissegundos):\n")
 
-console.log("Bubble Sort:")
+console.log("Bubble sort:")
 console.log("Aleatório:", medirTempo(bubbleSort, aleatorio), "ms")
 console.log("Ordenado:", medirTempo(bubbleSort, ordenado), "ms")
 console.log("Invertido:", medirTempo(bubbleSort, invertido), "ms")
 
-console.log("\n Selection Sort:")
+console.log("\nSelection sort:")
 console.log("Aleatório:", medirTempo(selectionSort, aleatorio), "ms")
 console.log("Ordenado:", medirTempo(selectionSort, ordenado), "ms")
 console.log("Invertido:", medirTempo(selectionSort, invertido), "ms")
 
-console.log("\n Insertion Sort:")
+console.log("\nInsertion sort:")
 console.log("Aleatório:", medirTempo(insertionSort, aleatorio), "ms")
 console.log("Ordenado:", medirTempo(insertionSort, ordenado), "ms")
 console.log("Invertido:", medirTempo(insertionSort, invertido), "ms")
 
-console.log("\n Quick Sort:")
-console.log("Aleatório:", medirTempo(insertionSort, aleatorio), "ms")
-console.log("Ordenado:", medirTempo(insertionSort, ordenado), "ms")
-console.log("Invertido:", medirTempo(insertionSort, invertido), "ms")
+console.log("\nQuick sort:");
+console.log("Aleatório:", medirTempo(quickSort, aleatorio), "ms")
+console.log("Ordenado:", medirTempo(quickSort, ordenado), "ms")
+console.log("Invertido:", medirTempo(quickSort, invertido), "ms")

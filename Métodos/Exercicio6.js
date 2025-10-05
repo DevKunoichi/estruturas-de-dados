@@ -1,27 +1,25 @@
-var fila = []
-let x = parseInt(prompt("Informe um número:"))
-fila.push(x)
+let fila = []
+fila.push(parseInt(prompt("Informe um número:")))
 fila.push(1)
 fila.push(2)
-
-console.log("Fila: " + fila)
+console.log("Fila:" + fila)
 
 x = fila.shift()
-console.log("Elemento removido: " + x)
-console.log("Fila: " + fila)
+console.log("Removido:" + x)
+console.log("Fila:" + fila)
 
 //*************************************************** 
 
-function limpar (fila){
+function limpar(fila){
     while (fila.length != 0){
         fila.shift()
     }
 }
 fila = [1, 2 ,3 , 4, 5]
-console.log("Antes:", fila)
+console.log("Fila antes:" + fila)
 
 limpar (fila)
-console.log("Depois: ", fila)
+console.log("Fila depois:" + fila)
 
 //*************************************************** 
 
@@ -30,6 +28,13 @@ function limpar(pilha) {
         pilha.pop()
     }
 }
+pilha = [1, 2, 3, 4, 5]
+console.log("Pilha antes:" + pilha)
+
+limpar(pilha)
+console.log("Pilha depois:" + pilha)
+
+//************************************************** 
 
 function topo(pilha) {
     if (pilha.length != 0) {
@@ -48,24 +53,24 @@ pilha.push(x)
 pilha.push(5)
 pilha.push(7)
 
-console.log("Pilha: " + pilha) 
+console.log("Pilha antes:" + pilha) 
 x = pilha.pop()
-console.log("Elemento removido: " + x)
-console.log("Pilha: " + pilha) 
+console.log("Removido:" + x)
+console.log("Pilha depois:" + pilha) 
 
 pilha.push(10)
 pilha.push(45)
-console.log("Pilha: " + pilha) 
+console.log("Pilha atual:" + pilha) 
 
-console.log("Topo: " + topo(pilha)) 
-console.log("Pilha após topo: " + pilha) 
+console.log("Topo:" + topo(pilha)) 
+console.log("Pilha após topo:" + pilha) 
 
 limpar(pilha)
-console.log("Pilha após limpar: " + pilha)
+console.log("Pilha após limpar:" + pilha)
 
 //******************************************************* 
 
-function intercalar_filas(fila1, fila2){
+function intercalarFilas(fila1, fila2){
     let fila_resultado = []
     let i = 0
 
@@ -83,12 +88,12 @@ function intercalar_filas(fila1, fila2){
 let fila1 = [1, 3, 5, 7]
 let fila2 = [2, 4, 6, 8, 9, 10]
 
-let resultado = intercalar_filas(fila1, fila2)
+let resultado = intercalarFilas(fila1, fila2)
 console.log(resultado)
 
 //********************************************************
 
-function inverter_palavras(frase){
+function inverterPalavras(frase){
     let palavras = frase.split(" ")
     let resultado = []
 
@@ -107,7 +112,7 @@ function inverter_palavras(frase){
     return resultado
 }
 let texto = "Exercício muito complicado"
-let saida = inverter_palavras(texto)
+let saida = inverterPalavras(texto)
 
 console.log("Entrada:", texto)
 console.log("Saída:", saida)
