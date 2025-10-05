@@ -35,7 +35,7 @@ function insertionSort(vetor) {
     for (let i = 1; i < vetor.length; i++) {
         let chave = vetor[i]
         j = i - 1
-        while (j >= 0 || vetor[j] > chave) {
+        while (j >= 0 && vetor[j] > chave) {
             vetor[j + 1] = vetor[j]
             j--
         }
