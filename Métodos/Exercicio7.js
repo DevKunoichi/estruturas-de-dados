@@ -88,15 +88,15 @@ function medirTempo(funcao, vetor) {
     return (fim - inicio).toFixed(2)
 }
 
-function gerarAleatorio(tamanho = 100000) {
+function gerarAleatorio(tamanho = 100.000) {
     let vetor = []
     for (let i = 0; i < tamanho; i++) {
-        vetor.push(Math.floor(Math.random() * 100000))
+        vetor.push(Math.floor(Math.random() * 100.000))
     }
     return vetor
 }
 
-function gerarOrdenado(tamanho = 100000) {
+function gerarOrdenado(tamanho = 100.000) {
     let vetor = []
     for (let i = 0; i < tamanho; i++) {
         vetor.push(i)
@@ -104,7 +104,7 @@ function gerarOrdenado(tamanho = 100000) {
     return vetor
 }
 
-function gerarInvertido(tamanho = 100000) {
+function gerarInvertido(tamanho = 100.000) {
     let vetor = [];
     for (let i = tamanho; i > 0; i--) {
         vetor.push(i)
@@ -112,13 +112,7 @@ function gerarInvertido(tamanho = 100000) {
     return vetor
 }
 
-// Teste rápido do quickSort
-let vetor = [77, 44, 22, 33, 99, 55, 88, 0, 66, 11]
-quickSort(vetor, 0, vetor.length - 1)
-console.log("Resultado do quickSort:", vetor)
-
 // Testes 
-
 let aleatorio = gerarAleatorio()
 let ordenado = gerarOrdenado()
 let invertido = gerarInvertido()
